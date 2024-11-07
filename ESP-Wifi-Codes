@@ -1,0 +1,18 @@
+#include <WiFi.h>
+
+const char* ssid = "Wokwi-GUEST"; // SSID dari jaringan
+const char* password = "";        // Password untuk Wokwi-GUEST kosong
+
+void setup() {
+  Serial.begin(115200);
+  delay(1000);
+  
+  // Memulai koneksi WiFi
+  Serial.print("Connecting to WiFi...");
+  WiFi.begin(ssid, password);
+
+  // Menunggu hingga terhubung ke WiFi
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
