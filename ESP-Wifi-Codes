@@ -16,3 +16,19 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
+    Serial.println("\nConnected to WiFi!");
+  
+  // Menampilkan IP Address
+  Serial.print("IP Address: ");
+  Serial.println(WiFi.localIP());
+
+  // Mengambil dan menampilkan MAC Address
+  uint8_t mac[6];
+  WiFi.macAddress(mac);
+  Serial.print("MAC Address ESP32: ");
+  for (int i = 0; i < 6; i++) {
+    Serial.printf("%02X", mac[i]);
+    if (i < 5) Serial.print(":");
+  }
+  Serial.println();
+}
